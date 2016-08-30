@@ -5,7 +5,7 @@ ALTER DATABASE planejae SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
 GO
 */
 --drop database planejae;
-create database planejae;
+--create database planejae;
 
 USE planejae;
 

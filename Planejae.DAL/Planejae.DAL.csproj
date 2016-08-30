@@ -48,10 +48,11 @@
   <ItemGroup>
     <Folder Include="SQL\02-View\" />
     <Folder Include="SQL\03-Function\" />
-    <Folder Include="SQL\04-Procedure\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\01-Table\CreateAll.sql" />
+    <Content Include="SQL\04-Procedure\Sp_Atividade_Get.sql" />
+    <Content Include="SQL\04-Procedure\Sp_Atividade_Ins_Upd.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
