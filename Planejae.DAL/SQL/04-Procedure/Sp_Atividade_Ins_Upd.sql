@@ -6,7 +6,7 @@ END
 PRINT 'Creating object Sp_Atividade_Ins_Upd' 
 go
 CREATE PROCEDURE Sp_Atividade_Ins_Upd
-	@Id_Atividade int = NULL, 
+	@Id_Atividade int  = NULL output, 
 	@Desc_Atividade varchar(1024),
 	@Id_Usuario_Atualiz int = NULL, 
 	@Dt_Atualiz datetime = NULL, 
@@ -60,6 +60,8 @@ BEGIN
 		@Nr_Dias_Termino,
 		@Nome
 	)
+	
+	SET @Id_Atividade = SCOPE_IDENTITY()
 END
 
 SET NOCOUNT OFF

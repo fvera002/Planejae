@@ -13,8 +13,8 @@ namespace Planejae.DAL.Classes
         public void GetAll(DataTable datatable)
         {
 
-            var exec = new ProcedureExecuter();
-            exec.Execute("");
+            var exec = new ProcedureExecuter(datatable);
+            exec.Execute("Sp_Atividade_Get");
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Planejae.DAL.Util
         public void Execute(string procedureName)
         {
             using (var conn = Connection.GetInstance())
-            using (var cmd = new SqlCommand(procedureName))
+            using (var cmd = new SqlCommand(procedureName, conn))
             {
                 conn.Open();
 

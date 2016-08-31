@@ -13,17 +13,16 @@ namespace Planejae.DAL.Util
 
         private static SqlConnection _conn;
 
-        /*
-        private static SqlConnectionStringBuilder _connString =
-            new SqlConnectionStringBuilder()
-            {
-                DataSource = "localhost",
-                UserID = "admin",
-                Password = "amagnnno",
-                InitialCatalog = "planejae",
-                IntegratedSecurity = true
-            };
-         */
+        
+        //private static SqlConnectionStringBuilder _connString =
+        //    new SqlConnectionStringBuilder()
+        //    {
+        //        DataSource = @"fernandoverago\SQLEXPRESS",
+        //        InitialCatalog = "planejae",
+        //        IntegratedSecurity = true,
+        //        Pooling = true
+        //    };
+
         private static SqlConnectionStringBuilder _connString =
             new SqlConnectionStringBuilder()
             {

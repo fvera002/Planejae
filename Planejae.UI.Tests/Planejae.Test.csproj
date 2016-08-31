@@ -82,6 +82,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ObtemAtividade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -92,10 +93,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Planejae.BLL\Planejae.BLL.csproj">
+      <Project>{7996593a-2e64-4fcb-81fc-1b338e38452e}</Project>
+      <Name>Planejae.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Planejae.DAL\Planejae.DAL.csproj">
+      <Project>{b1bc7fb5-c2d3-4c6c-85dc-c92410530ca2}</Project>
+      <Name>Planejae.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Planejae.UI\Planejae.UI.csproj">
       <Project>{D465A714-A323-43CF-B075-13D0C101DAFF}</Project>
       <Name>Planejae.UI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
