@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using Planejae.BLL.Classes;
 
 namespace Planejae.UI.Models
 {
@@ -36,10 +37,19 @@ namespace Planejae.UI.Models
         [Display(Name = "Aceita Anexos")]
         public bool FlAceitaAnexo { get; set; }
 
+        public IEnumerable<ResponsavelModel> Responsveis { get; set; }
 
-        public AtividadeModel(BLL.Classes.AtividadeBLL.AtividadeRow row)
+        private AtividadeBLL.AtividadeRow Row;
+
+        public AtividadeModel()
+        {
+
+        }
+
+        public AtividadeModel(AtividadeBLL.AtividadeRow row)
         {
             if (row == null) return;
+            this.Row = row;
 
             this.FlPermiteRetrabalho = row.Fl_Permite_Retrabalho > 0 ? true : false;
             this.FlAdicionaProxResponsavel = row.Fl_Define_Responsavel > 0 ? true : false;
@@ -48,6 +58,23 @@ namespace Planejae.UI.Models
             this.DiasTermino = row.Nr_Dias_Termino;
             this.Id = row.Id_Atividade;
             this.Nome = row.Nome;
+        }
+
+        public AtividadeBLL.AtividadeRow ToRow()
+        {
+            if (this.Row != null) return Row;
+            var newRow = new AtividadeBLL().Atividade.NewAtividadeRow();
+
+            newRow.Fl_Permite_Retrabalho = this.FlPermiteRetrabalho ? 1 : 0;
+            newRow.Fl_Define_Responsavel = this.FlAdicionaProxResponsavel ? 1 : 0;
+            newRow.Fl_Permite_Anexo = this.FlAceitaAnexo? 1: 0;
+            newRow.Desc_Atividade = this.Descricao;
+            if(this.DiasTermino.HasValue)newRow.Nr_Dias_Termino = this.DiasTermino.Value;
+            newRow.Id_Atividade = this.Id;
+            newRow.Nome = this.Nome;
+
+            return newRow;
+
         }
     }
 }

@@ -40,11 +40,11 @@ namespace Planejae.UI.Controllers
         //
         // POST: /Atividade/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(AtividadeModel model)
         {
             try
             {
-                // TODO: Add insert logic here
+                Bll.InsertUpdate(model.ToRow());
 
                 return RedirectToAction("Index");
             }

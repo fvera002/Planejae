@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace Planejae.DAL.Util
 {
-    public static class Connection
+    public  class Connection
     {
 
 
-        private static SqlConnection _conn;
+        private  SqlConnection _conn;
 
-        
-        //private static SqlConnectionStringBuilder _connString =
-        //    new SqlConnectionStringBuilder()
-        //    {
-        //        DataSource = @"fernandoverago\SQLEXPRESS",
-        //        InitialCatalog = "planejae",
-        //        IntegratedSecurity = true,
-        //        Pooling = true
-        //    };
 
-        private static SqlConnectionStringBuilder _connString =
+        private SqlConnectionStringBuilder _connStringLocal =
+            new SqlConnectionStringBuilder()
+            {
+                DataSource = @"fernandoverago\SQLEXPRESS",
+                InitialCatalog = "planejae",
+                IntegratedSecurity = true,
+                Pooling = true
+            };
+
+        private  SqlConnectionStringBuilder _connStringAmazon =
             new SqlConnectionStringBuilder()
             {
                 DataSource = "admin.crtugkxdbwbd.us-west-2.rds.amazonaws.com",
@@ -33,12 +33,13 @@ namespace Planejae.DAL.Util
                 Pooling = true
             };
 
-        public static SqlConnection GetInstance()
+        public Connection()
         {
-            if (_conn == null)
-            {
-                _conn = new SqlConnection(_connString.ToString());
-            }
+            _conn = new SqlConnection(_connStringLocal.ToString());
+        }
+
+        public SqlConnection GetInstance()
+        {
             return _conn;            
         }
     }

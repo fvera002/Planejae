@@ -43,6 +43,7 @@
     <Compile Include="Classes\AtividadeDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Connection.cs" />
+    <Compile Include="Util\ParList.cs" />
     <Compile Include="Util\ProcedureExecuter.cs" />
   </ItemGroup>
   <ItemGroup>
