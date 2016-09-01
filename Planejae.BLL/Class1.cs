@@ -8,5 +8,6 @@ namespace Planejae.BLL
 {
     public class Class1
     {
+        //Lucas Aqui
     }
 }
