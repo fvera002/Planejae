@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Planejae.BLL
+namespace Planejae.DAL.Util
 {
-    public class Class1
+    public class ParList : Dictionary<string, object>
     {
-        //Lucas Aqui
-        //Verago aqui
     }
 }
