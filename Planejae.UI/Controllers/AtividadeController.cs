@@ -10,8 +10,10 @@ namespace Planejae.UI.Controllers
     public class AtividadeController : Controller
     {
         public BLL.Classes.AtividadeBLL Bll = new BLL.Classes.AtividadeBLL();
+
         //
         // GET: /Atividade/
+        [Authorize(Roles = "Gestor")]
         public ActionResult Index()
         {
             var listBll = Bll.GetAll();
