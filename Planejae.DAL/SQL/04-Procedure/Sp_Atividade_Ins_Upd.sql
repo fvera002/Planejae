@@ -8,10 +8,10 @@ go
 CREATE PROCEDURE Sp_Atividade_Ins_Upd
 	@Id_Atividade int  = NULL output, 
 	@Desc_Atividade varchar(1024),
-	@Id_Usuario_Atualiz int = NULL, 
-	@Fl_Permite_Retrabalho int = NULL, 
-	@Fl_Define_Responsavel int = NULL, 
-	@Fl_Permite_Anexo int = NULL, 
+	@Id_Usuario_Atualiz Usuario, 
+	@Fl_Permite_Retrabalho int, 
+	@Fl_Define_Responsavel int, 
+	@Fl_Permite_Anexo int, 
 	@Nr_Dias_Termino int = NULL, 
 	@Nome varchar(80)
 
@@ -62,6 +62,8 @@ BEGIN
 	
 	SET @Id_Atividade = SCOPE_IDENTITY()
 END
+
+select * from Atividade where Id_Atividade = @Id_Atividade
 
 SET NOCOUNT OFF
 

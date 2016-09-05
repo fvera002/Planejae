@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Planejae.UI.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Planejae.UI.Controllers
 {
@@ -46,7 +47,10 @@ namespace Planejae.UI.Controllers
         {
             try
             {
-                Bll.InsertUpdate(model.ToRow());
+                var ativ = model.ToRow();
+
+                ativ.Id_Usuario_Atualiz = User.Identity.GetUserName();
+                Bll.InsertUpdate(ativ);                
 
                 return RedirectToAction("Index");
             }

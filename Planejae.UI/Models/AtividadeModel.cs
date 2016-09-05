@@ -37,6 +37,10 @@ namespace Planejae.UI.Models
         [Display(Name = "Aceita Anexos")]
         public bool FlAceitaAnexo { get; set; }
 
+        [Required]
+        [Display(Name = "Usuário Inclusão")]
+        public string IdUsu { get; set; }
+
         public IEnumerable<ResponsavelModel> Responsveis { get; set; }
 
         private AtividadeBLL.AtividadeRow Row;

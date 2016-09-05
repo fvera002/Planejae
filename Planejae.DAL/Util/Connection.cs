@@ -35,7 +35,7 @@ namespace Planejae.DAL.Util
 
         public Connection()
         {
-            _conn = new SqlConnection(_connStringAmazon.ToString());
+            _conn = new SqlConnection(_connStringLocal.ToString());
         }
 
         public SqlConnection GetInstance()
