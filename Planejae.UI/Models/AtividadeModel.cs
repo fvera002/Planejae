@@ -39,6 +39,8 @@ namespace Planejae.UI.Models
 
         [Required]
         [Display(Name = "Usuário Inclusão")]
+        public string LoginInclusao { get; set; }
+
         public string IdUsu { get; set; }
 
         public IEnumerable<ResponsavelModel> Responsveis { get; set; }
@@ -62,6 +64,7 @@ namespace Planejae.UI.Models
             this.DiasTermino = row.Nr_Dias_Termino;
             this.Id = row.Id_Atividade;
             this.Nome = row.Nome;
+            this.LoginInclusao = row.Login_Atualiz;
         }
 
         public AtividadeBLL.AtividadeRow ToRow()

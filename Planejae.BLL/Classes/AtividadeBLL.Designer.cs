@@ -297,7 +297,7 @@ namespace Planejae.BLL.Classes {
             
             private global::System.Data.DataColumn columnDt_Atualiz;
             
-            private global::System.Data.DataColumn columnDataColumn4;
+            private global::System.Data.DataColumn columnLogin_Atualiz;
             
             private global::System.Data.DataColumn columnDataColumn5;
             
@@ -408,9 +408,9 @@ namespace Planejae.BLL.Classes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DataColumn4Column {
+            public global::System.Data.DataColumn Login_AtualizColumn {
                 get {
-                    return this.columnDataColumn4;
+                    return this.columnLogin_Atualiz;
                 }
             }
             
@@ -459,7 +459,7 @@ namespace Planejae.BLL.Classes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AtividadeRow AddAtividadeRow(int Id_Atividade, string Nome, string Desc_Atividade, int Fl_Permite_Retrabalho, int Fl_Define_Responsavel, int Fl_Permite_Anexo, int Nr_Dias_Termino, string Id_Usuario_Atualiz, System.DateTime Dt_Atualiz, string DataColumn4, string DataColumn5) {
+            public AtividadeRow AddAtividadeRow(int Id_Atividade, string Nome, string Desc_Atividade, int Fl_Permite_Retrabalho, int Fl_Define_Responsavel, int Fl_Permite_Anexo, int Nr_Dias_Termino, string Id_Usuario_Atualiz, System.DateTime Dt_Atualiz, string Login_Atualiz, string DataColumn5) {
                 AtividadeRow rowAtividadeRow = ((AtividadeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id_Atividade,
@@ -471,7 +471,7 @@ namespace Planejae.BLL.Classes {
                         Nr_Dias_Termino,
                         Id_Usuario_Atualiz,
                         Dt_Atualiz,
-                        DataColumn4,
+                        Login_Atualiz,
                         DataColumn5};
                 rowAtividadeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAtividadeRow);
@@ -504,7 +504,7 @@ namespace Planejae.BLL.Classes {
                 this.columnNr_Dias_Termino = base.Columns["Nr_Dias_Termino"];
                 this.columnId_Usuario_Atualiz = base.Columns["Id_Usuario_Atualiz"];
                 this.columnDt_Atualiz = base.Columns["Dt_Atualiz"];
-                this.columnDataColumn4 = base.Columns["DataColumn4"];
+                this.columnLogin_Atualiz = base.Columns["Login_Atualiz"];
                 this.columnDataColumn5 = base.Columns["DataColumn5"];
             }
             
@@ -529,8 +529,8 @@ namespace Planejae.BLL.Classes {
                 base.Columns.Add(this.columnId_Usuario_Atualiz);
                 this.columnDt_Atualiz = new global::System.Data.DataColumn("Dt_Atualiz", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDt_Atualiz);
-                this.columnDataColumn4 = new global::System.Data.DataColumn("DataColumn4", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDataColumn4);
+                this.columnLogin_Atualiz = new global::System.Data.DataColumn("Login_Atualiz", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLogin_Atualiz);
                 this.columnDataColumn5 = new global::System.Data.DataColumn("DataColumn5", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDataColumn5);
             }
@@ -819,17 +819,17 @@ namespace Planejae.BLL.Classes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string DataColumn4 {
+            public string Login_Atualiz {
                 get {
                     try {
-                        return ((string)(this[this.tableAtividade.DataColumn4Column]));
+                        return ((string)(this[this.tableAtividade.Login_AtualizColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn4\' in table \'Atividade\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Login_Atualiz\' in table \'Atividade\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAtividade.DataColumn4Column] = value;
+                    this[this.tableAtividade.Login_AtualizColumn] = value;
                 }
             }
             
@@ -959,14 +959,14 @@ namespace Planejae.BLL.Classes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDataColumn4Null() {
-                return this.IsNull(this.tableAtividade.DataColumn4Column);
+            public bool IsLogin_AtualizNull() {
+                return this.IsNull(this.tableAtividade.Login_AtualizColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDataColumn4Null() {
-                this[this.tableAtividade.DataColumn4Column] = global::System.Convert.DBNull;
+            public void SetLogin_AtualizNull() {
+                this[this.tableAtividade.Login_AtualizColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -23,12 +23,14 @@ namespace Planejae.DAL.Classes
             int defineResponsavel,
             string nome,
             int? diasTermino,
-            int? id = null)
+            string idUsu,
+            int? id = null
+            )
         {
             ParList inPars = new ParList();
             
             inPars.Add("@Desc_Atividade", descAtividade);
-            inPars.Add("@Id_Usuario_Atualiz", 1);
+            inPars.Add("@Id_Usuario_Atualiz", idUsu);
             //dic.Add("@Dt_Atualiz", "");
             inPars.Add("@Fl_Permite_Retrabalho", permiteRetrabalho);
             inPars.Add("@Fl_Define_Responsavel", defineResponsavel);

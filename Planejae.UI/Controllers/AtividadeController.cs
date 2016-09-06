@@ -49,7 +49,7 @@ namespace Planejae.UI.Controllers
             {
                 var ativ = model.ToRow();
 
-                ativ.Id_Usuario_Atualiz = User.Identity.GetUserName();
+                ativ.Id_Usuario_Atualiz = User.Identity.GetUserId();
                 Bll.InsertUpdate(ativ);                
 
                 return RedirectToAction("Index");

@@ -27,7 +27,8 @@ namespace Planejae.BLL.Classes {
                 row.Fl_Permite_Anexo,
                 row.Fl_Define_Responsavel,
                 row.Nome,
-                row.IsNr_Dias_TerminoNull() ? null as int? : row.Nr_Dias_Termino);
+                row.IsNr_Dias_TerminoNull() ? null as int? : row.Nr_Dias_Termino,
+                row.Id_Usuario_Atualiz);
         }
     }
 

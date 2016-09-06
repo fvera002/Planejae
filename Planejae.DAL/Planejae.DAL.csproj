@@ -48,11 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SQL\02-View\" />
-    <Folder Include="SQL\03-Function\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\01-Table\CreateAll.sql" />
     <Content Include="SQL\01-Table\InsertPerfilUsuario.sql" />
+    <Content Include="SQL\03-Function\Fn_Is_Gestor.sql" />
     <Content Include="SQL\04-Procedure\Sp_Atividade_Get.sql" />
     <Content Include="SQL\04-Procedure\Sp_Atividade_Ins_Upd.sql" />
   </ItemGroup>
