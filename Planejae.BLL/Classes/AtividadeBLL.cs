@@ -8,27 +8,51 @@ namespace Planejae.BLL.Classes {
     
     
     public partial class AtividadeBLL {
+        partial class ResponsavelDataTable
+        {
+        }
+    
         partial class AtividadeDataTable
         {
         }
 
-        private AtividadeDAL Dal = new AtividadeDAL();
+        private AtividadeDAL atividadeDal = new AtividadeDAL();
+        private ResponsavelDAL responsavelDal = new ResponsavelDAL();
+
+
+        public List<ResponsavelRow> GetResponsaveis()
+        {
+            responsavelDal.GetAll(this.Responsavel);
+
+            return this.Responsavel.ToList();
+
+        }
 
         public List<AtividadeRow> GetAll()
         {
-            Dal.GetAll(this.Atividade);
+            atividadeDal.GetAll(this.Atividade);
             return this.Atividade.ToList();
         }
 
-        public int? InsertUpdate(AtividadeRow row)
+        public int? InsertUpdate(AtividadeRow atividadeRow, List<string> idResponsaveis)
         {
-            return Dal.InsertUpdate(row.Desc_Atividade,
-                row.Fl_Permite_Retrabalho,
-                row.Fl_Permite_Anexo,
-                row.Fl_Define_Responsavel,
-                row.Nome,
-                row.IsNr_Dias_TerminoNull() ? null as int? : row.Nr_Dias_Termino,
-                row.Id_Usuario_Atualiz);
+            var idAtividade = atividadeDal.InsertUpdate(atividadeRow.Desc_Atividade,
+                atividadeRow.Fl_Permite_Retrabalho,
+                atividadeRow.Fl_Permite_Anexo,
+                atividadeRow.Fl_Define_Responsavel,
+                atividadeRow.Nome,
+                atividadeRow.IsNr_Dias_TerminoNull() ? null as int? : atividadeRow.Nr_Dias_Termino,
+                atividadeRow.Id_Usuario_Atualiz);
+
+            if (!idAtividade.HasValue) return null;
+            foreach(var idUsu in idResponsaveis)
+            {
+                responsavelDal.InsertUpdate(idAtividade.Value,
+                    idUsu,
+                    atividadeRow.Id_Usuario_Atualiz,
+                    null);
+            }
+            return idAtividade;
         }
     }
 

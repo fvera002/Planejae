@@ -39,13 +39,16 @@ namespace Planejae.DAL.Classes
             inPars.Add("@Nome", nome);
 
             ParList outPars = new ParList();
-            //outPars.Add("@Id_Atividade", id);
+            outPars.Add("@Id_Atividade", id);
 
             var exec = new ProcedureExecuter();
 
-            exec.Execute("Sp_Atividade_Ins_Upd", inPars);
+            exec.Execute("Sp_Atividade_Ins_Upd", inPars, ref outPars);
 
-            return outPars.First().Value as int?;
+            if (outPars.Count == 0) return null;
+            var ret = outPars.First().Value.ToString();
+            if (string.IsNullOrEmpty(ret)) return null;
+            return int.Parse(ret);
         }
     }
 }

@@ -41,11 +41,11 @@ namespace Planejae.UI.Models
         [Display(Name = "Usuário Inclusão")]
         public string LoginInclusao { get; set; }
 
-        public string IdUsu { get; set; }
+        public IEnumerable<string> IdsResponsaveis { get; set; }
 
-        public IEnumerable<ResponsavelModel> Responsveis { get; set; }
+        [Display(Name = "Responsáveis")]
+        public IEnumerable<AtividadeBLL.ResponsavelRow> Responsaveis { get; set; }
 
-        private AtividadeBLL.AtividadeRow Row;
 
         public AtividadeModel()
         {
@@ -55,7 +55,6 @@ namespace Planejae.UI.Models
         public AtividadeModel(AtividadeBLL.AtividadeRow row)
         {
             if (row == null) return;
-            this.Row = row;
 
             this.FlPermiteRetrabalho = row.Fl_Permite_Retrabalho > 0 ? true : false;
             this.FlAdicionaProxResponsavel = row.Fl_Define_Responsavel > 0 ? true : false;
@@ -69,7 +68,6 @@ namespace Planejae.UI.Models
 
         public AtividadeBLL.AtividadeRow ToRow()
         {
-            if (this.Row != null) return Row;
             var newRow = new AtividadeBLL().Atividade.NewAtividadeRow();
 
             newRow.Fl_Permite_Retrabalho = this.FlPermiteRetrabalho ? 1 : 0;

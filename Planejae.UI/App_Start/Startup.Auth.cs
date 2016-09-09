@@ -2,6 +2,7 @@
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using System;
 
 namespace Planejae.UI
 {
@@ -13,6 +14,7 @@ namespace Planejae.UI
             // Enable the application to use a cookie to store information for the signed in user
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
+                //ExpireTimeSpan = TimeSpan.FromMinutes(60),
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login")
             });

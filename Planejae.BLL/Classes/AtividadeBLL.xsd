@@ -29,6 +29,14 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Responsavel" msprop:Generator_TableClassName="ResponsavelDataTable" msprop:Generator_TableVarName="tableResponsavel" msprop:Generator_TablePropName="Responsavel" msprop:Generator_RowDeletingName="ResponsavelRowDeleting" msprop:Generator_RowChangingName="ResponsavelRowChanging" msprop:Generator_RowEvHandlerName="ResponsavelRowChangeEventHandler" msprop:Generator_RowDeletedName="ResponsavelRowDeleted" msprop:Generator_UserTableName="Responsavel" msprop:Generator_RowChangedName="ResponsavelRowChanged" msprop:Generator_RowEvArgName="ResponsavelRowChangeEvent" msprop:Generator_RowClassName="ResponsavelRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id_Usuario" msprop:Generator_ColumnVarNameInTable="columnId_Usuario" msprop:Generator_ColumnPropNameInRow="Id_Usuario" msprop:Generator_ColumnPropNameInTable="Id_UsuarioColumn" msprop:Generator_UserColumnName="Id_Usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="Login_Usuario" msprop:Generator_ColumnVarNameInTable="columnLogin_Usuario" msprop:Generator_ColumnPropNameInRow="Login_Usuario" msprop:Generator_ColumnPropNameInTable="Login_UsuarioColumn" msprop:Generator_UserColumnName="Login_Usuario" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
