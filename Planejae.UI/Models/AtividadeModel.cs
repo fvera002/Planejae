@@ -39,11 +39,13 @@ namespace Planejae.UI.Models
 
         [Required]
         [Display(Name = "Usuário Inclusão")]
-        public string IdUsu { get; set; }
+        public string LoginInclusao { get; set; }
 
-        public IEnumerable<ResponsavelModel> Responsveis { get; set; }
+        public IEnumerable<string> IdsResponsaveis { get; set; }
 
-        private AtividadeBLL.AtividadeRow Row;
+        [Display(Name = "Responsáveis")]
+        public IEnumerable<AtividadeBLL.ResponsavelRow> Responsaveis { get; set; }
+
 
         public AtividadeModel()
         {
@@ -53,7 +55,6 @@ namespace Planejae.UI.Models
         public AtividadeModel(AtividadeBLL.AtividadeRow row)
         {
             if (row == null) return;
-            this.Row = row;
 
             this.FlPermiteRetrabalho = row.Fl_Permite_Retrabalho > 0 ? true : false;
             this.FlAdicionaProxResponsavel = row.Fl_Define_Responsavel > 0 ? true : false;
@@ -62,11 +63,11 @@ namespace Planejae.UI.Models
             this.DiasTermino = row.Nr_Dias_Termino;
             this.Id = row.Id_Atividade;
             this.Nome = row.Nome;
+            this.LoginInclusao = row.Login_Atualiz;
         }
 
         public AtividadeBLL.AtividadeRow ToRow()
         {
-            if (this.Row != null) return Row;
             var newRow = new AtividadeBLL().Atividade.NewAtividadeRow();
 
             newRow.Fl_Permite_Retrabalho = this.FlPermiteRetrabalho ? 1 : 0;

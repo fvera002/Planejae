@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Classes\AtividadeDAL.cs" />
+    <Compile Include="Classes\ResponsavelDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Connection.cs" />
     <Compile Include="Util\ParList.cs" />
@@ -48,13 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SQL\02-View\" />
-    <Folder Include="SQL\03-Function\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\01-Table\CreateAll.sql" />
     <Content Include="SQL\01-Table\InsertPerfilUsuario.sql" />
+    <Content Include="SQL\03-Function\Fn_Is_Gestor.sql" />
     <Content Include="SQL\04-Procedure\Sp_Atividade_Get.sql" />
     <Content Include="SQL\04-Procedure\Sp_Atividade_Ins_Upd.sql" />
+    <Content Include="SQL\04-Procedure\Sp_Atividade_Responsavel_Get.sql" />
+    <Content Include="SQL\04-Procedure\Sp_Responsavel_Get.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

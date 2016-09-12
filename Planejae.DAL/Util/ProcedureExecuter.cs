@@ -61,13 +61,15 @@ namespace Planejae.DAL.Util
 
                     foreach (var par in outParameters)
                     {
-                        if (par.Value != null) cmd.Parameters.AddWithValue(par.Key, par.Value);
+                        cmd.Parameters.AddWithValue(par.Key, par.Value).Size = 1024;
+                        cmd.Parameters[par.Key].Direction = ParameterDirection.Output;
                     }
                     ExecuteCommand(conn, cmd);
 
-                    foreach (var par in outParameters)
+                    foreach (var par in cmd.Parameters.Cast<SqlParameter>())
                     {
-                        if (par.Value != null) cmd.Parameters.AddWithValue(par.Key, par.Value);
+                        if(par.Direction == ParameterDirection.Output)
+                            outParameters[par.ParameterName] = par.Value;
                     }
                 }
             }

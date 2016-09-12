@@ -37,7 +37,10 @@ namespace Planejae.UI.Controllers
         // GET: /Atividade/Create
         public ActionResult Create()
         {
-            return View();
+            AtividadeModel model = new AtividadeModel();
+
+            model.Responsaveis = Bll.GetResponsaveis();
+            return View(model);
         }
 
         //
@@ -49,8 +52,9 @@ namespace Planejae.UI.Controllers
             {
                 var ativ = model.ToRow();
 
-                ativ.Id_Usuario_Atualiz = User.Identity.GetUserName();
-                Bll.InsertUpdate(ativ);                
+                ativ.Id_Usuario_Atualiz = User.Identity.GetUserId();
+
+                Bll.InsertUpdate(ativ, model.IdsResponsaveis.ToList());                
 
                 return RedirectToAction("Index");
             }

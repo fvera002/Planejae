@@ -23,12 +23,14 @@ namespace Planejae.DAL.Classes
             int defineResponsavel,
             string nome,
             int? diasTermino,
-            int? id = null)
+            string idUsu,
+            int? id = null
+            )
         {
             ParList inPars = new ParList();
             
             inPars.Add("@Desc_Atividade", descAtividade);
-            inPars.Add("@Id_Usuario_Atualiz", 1);
+            inPars.Add("@Id_Usuario_Atualiz", idUsu);
             //dic.Add("@Dt_Atualiz", "");
             inPars.Add("@Fl_Permite_Retrabalho", permiteRetrabalho);
             inPars.Add("@Fl_Define_Responsavel", defineResponsavel);
@@ -37,13 +39,16 @@ namespace Planejae.DAL.Classes
             inPars.Add("@Nome", nome);
 
             ParList outPars = new ParList();
-            //outPars.Add("@Id_Atividade", id);
+            outPars.Add("@Id_Atividade", id);
 
             var exec = new ProcedureExecuter();
 
-            exec.Execute("Sp_Atividade_Ins_Upd", inPars);
+            exec.Execute("Sp_Atividade_Ins_Upd", inPars, ref outPars);
 
-            return outPars.First().Value as int?;
+            if (outPars.Count == 0) return null;
+            var ret = outPars.First().Value.ToString();
+            if (string.IsNullOrEmpty(ret)) return null;
+            return int.Parse(ret);
         }
     }
 }

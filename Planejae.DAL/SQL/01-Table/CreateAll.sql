@@ -84,7 +84,7 @@ ALTER TABLE Atividade_Processo
 
 CREATE TABLE Atividade_Projeto_Responsavel
 ( 
-	Id_Usuario         integer  NOT NULL ,
+	Id_Usuario         Usuario  NOT NULL ,
 	Id_Usuario_Atualiz Usuario  NOT NULL ,
 	Dt_Atualiz         DATETIME  NOT NULL ,
 	Desc_Responsabilidade varchar(140)  NULL ,
