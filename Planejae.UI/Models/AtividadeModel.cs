@@ -49,7 +49,7 @@ namespace Planejae.UI.Models
 
         public AtividadeModel()
         {
-
+            IdsResponsaveis = new List<string>();
         }
 
         public AtividadeModel(AtividadeBLL.AtividadeRow row)
