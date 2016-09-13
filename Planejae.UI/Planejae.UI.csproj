@@ -161,6 +161,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AtividadeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjetoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,6 +226,8 @@
     <Content Include="Views\Atividade\View.cshtml" />
     <Content Include="Views\Atividade\Create.cshtml" />
     <Content Include="Views\Atividade\Partial1.cshtml" />
+    <Content Include="Views\Projeto\Create.cshtml" />
+    <Content Include="Views\Projeto\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

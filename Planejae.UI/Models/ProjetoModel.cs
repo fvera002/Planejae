@@ -15,7 +15,7 @@ namespace Planejae.UI.Models
         [Required]
         [Display(Name="Nome do Processo")]
         [StringLength(100, ErrorMessage="Max 100 caracteres.", MinimumLength=1)]
-        string Nome { get; set; }
+        public string Nome { get; set; }
 
         [Display(Name = "Descrição")]
         [StringLength(1024, ErrorMessage = "Max 1024 caracteres", MinimumLength = 1)]
@@ -24,7 +24,11 @@ namespace Planejae.UI.Models
         [Required]
         [Display(Name = "Data de Atualização")]
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        DateTime Dt_Atualiz { get; set; }
+        public DateTime Dt_Atualiz { get; set; }
+
+        [Required]
+        [Display(Name = "Usuario de Atualização")]
+        public int Id_Usuario_Atuliz { get; set; }
 
         public ProjetoModel()
         {}
