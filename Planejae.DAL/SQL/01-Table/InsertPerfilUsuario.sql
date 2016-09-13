@@ -1,3 +1,6 @@
+INSERT INTO dbo.AspNetRoles VALUES ('Gestor', 'Gestor')
+GO
+
 INSERT INTO [planejae].[dbo].[AspNetUserRoles]
            ([UserId]
            ,[RoleId])
