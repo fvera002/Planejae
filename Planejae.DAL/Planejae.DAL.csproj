@@ -56,7 +56,7 @@
     <Content Include="SQL\03-Function\Fn_Is_Gestor.sql" />
     <Content Include="SQL\04-Procedure\Sp_Atividade_Get.sql" />
     <Content Include="SQL\04-Procedure\Sp_Atividade_Ins_Upd.sql" />
-    <Content Include="SQL\04-Procedure\Sp_Atividade_Responsavel_Get.sql" />
+    <Content Include="SQL\04-Procedure\Sp_Atividade_Responsavel_Ins_Upd.sql" />
     <Content Include="SQL\04-Procedure\Sp_Responsavel_Get.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

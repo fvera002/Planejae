@@ -26,16 +26,16 @@ namespace Planejae.DAL.Util
         private  SqlConnectionStringBuilder _connStringAmazon =
             new SqlConnectionStringBuilder()
             {
-                DataSource = "admin.crtugkxdbwbd.us-west-2.rds.amazonaws.com",
-                UserID = "admin",
-                Password = "amagnnno",
+                DataSource = "ec2-52-35-48-50.us-west-2.compute.amazonaws.com",
+                UserID = "amagnnno",
+                Password = "olaf2016",
                 InitialCatalog = "planejae",
                 Pooling = true
             };
 
         public Connection()
         {
-            _conn = new SqlConnection(_connStringLocal.ToString());
+            _conn = new SqlConnection(_connStringAmazon.ToString());
         }
 
         public SqlConnection GetInstance()
