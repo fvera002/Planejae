@@ -49,6 +49,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AtividadeBLL.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Classes\ProjetoBLL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjetoBLL.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +73,17 @@
     </None>
     <None Include="Classes\AtividadeBLL.xss">
       <DependentUpon>AtividadeBLL.xsd</DependentUpon>
+    </None>
+    <None Include="Classes\ProjetoBLL.xsc">
+      <DependentUpon>ProjetoBLL.xsd</DependentUpon>
+    </None>
+    <None Include="Classes\ProjetoBLL.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjetoBLL.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Classes\ProjetoBLL.xss">
+      <DependentUpon>ProjetoBLL.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup />

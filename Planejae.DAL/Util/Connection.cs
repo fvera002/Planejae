@@ -17,7 +17,8 @@ namespace Planejae.DAL.Util
         private SqlConnectionStringBuilder _connStringLocal =
             new SqlConnectionStringBuilder()
             {
-                DataSource = @"fernandoverago\SQLEXPRESS",
+                //DataSource = @"fernandoverago\SQLEXPRESS",
+                DataSource = @"LUCAS\SQLEXPRESS",
                 InitialCatalog = "planejae",
                 IntegratedSecurity = true,
                 Pooling = true
