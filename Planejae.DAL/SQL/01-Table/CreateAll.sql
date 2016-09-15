@@ -191,4 +191,86 @@ ALTER TABLE Execucao
 
 ALTER TABLE Projeto
 	ADD CONSTRAINT R_32 FOREIGN KEY (Id_Processo) REFERENCES Processo(Id_Processo)
+go
+
+--------------------------------------------------------------------------------14-set-2016
+
+IF EXISTS (SELECT top 1 1 FROM sys.objects WHERE name = 'Sp_Processo_Ins_Upd')
+BEGIN
+	DROP PROCEDURE Sp_Processo_Ins_Upd
+	PRINT 'Dropping object Sp_Processo_Ins_Upd' 
+END
+PRINT 'Creating object Sp_Processo_Ins_Upd' 
+go
+CREATE PROCEDURE Sp_Processo_Ins_Upd
+@Id_Processo			int out,
+@Desc_Processo			varchar(1024),
+@Nome					varchar(80),
+@Id_Usuario_Atualiz		Usuario
+AS
+begin
+	SET NOCOUNT ON
+
+
+
+	IF EXISTS(SELECT TOP 1 1 FROM Processo WHERE Id_Processo = @Id_Processo)
+	BEGIN
+		 UPDATE Processo
+			SET Nome = @Nome,
+				Desc_Processo = @Desc_Processo,
+				Id_Usuario_Atualiz = @Id_Usuario_Atualiz,
+				Dt_Atualiz = GETDATE()
+		  WHERE Id_Processo = @Id_Processo
+
+	END
+	ELSE
+	BEGIN
+		INSERT INTO Processo
+		(
+			--Id_Processo,
+			Desc_Processo,
+			Id_Usuario_Atualiz,
+			Dt_Atualiz,
+			Nome
+		)
+		VALUES 
+		(
+			--@Id_Processo,
+			@Desc_Processo,
+			@Id_Usuario_Atualiz,
+			GETDATE(),
+			@Nome
+		)
+	
+		SET @Id_Processo = SCOPE_IDENTITY()
+	END
+
+	select * from Processo where Id_Processo = @Id_Processo
+
+	SET NOCOUNT OFF
+end
+
+go
+
+
+IF EXISTS (SELECT top 1 1 FROM sys.objects WHERE name = 'Sp_Processo_Get')
+BEGIN
+	DROP PROCEDURE Sp_Processo_Get
+	PRINT 'Dropping object Sp_Processo_Get' 
+END
+PRINT 'Creating object Sp_Processo_Get' 
+go
+CREATE PROCEDURE Sp_Processo_Get
+
+
+AS
+begin
+	SET NOCOUNT ON
+
+	select p.*, coalesce(us.UserName,p.Id_Usuario_Atualiz) as Login_Atualiz
+	  from Processo p
+	  left join AspNetUsers us on us.Id = p.Id_Usuario_Atualiz;
+
+	SET NOCOUNT OFF
+end
 

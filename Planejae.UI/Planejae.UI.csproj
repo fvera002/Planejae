@@ -161,6 +161,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AtividadeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProcessoController.cs" />
     <Compile Include="Controllers\ProjetoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -169,6 +170,7 @@
     <Compile Include="Models\AtividadeModel.cs" />
     <Compile Include="Models\AtividadeResponsavel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ProcessoModel.cs" />
     <Compile Include="Models\ProjetoModel.cs" />
     <Compile Include="Models\ResponsavelModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,6 +230,8 @@
     <Content Include="Views\Atividade\Partial1.cshtml" />
     <Content Include="Views\Projeto\Create.cshtml" />
     <Content Include="Views\Projeto\List.cshtml" />
+    <Content Include="Views\Processo\List.cshtml" />
+    <Content Include="Views\Processo\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProcessoBLL" targetNamespace="http://tempuri.org/ProcessoBLL.xsd" xmlns:mstns="http://tempuri.org/ProcessoBLL.xsd" xmlns="http://tempuri.org/ProcessoBLL.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ProcessoBLL" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ProcessoBLL" msprop:Generator_UserDSName="ProcessoBLL">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Processo" msprop:Generator_TableClassName="ProcessoDataTable" msprop:Generator_TableVarName="tableProcesso" msprop:Generator_TablePropName="Processo" msprop:Generator_RowDeletingName="ProcessoRowDeleting" msprop:Generator_RowChangingName="ProcessoRowChanging" msprop:Generator_RowEvHandlerName="ProcessoRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcessoRowDeleted" msprop:Generator_UserTableName="Processo" msprop:Generator_RowChangedName="ProcessoRowChanged" msprop:Generator_RowEvArgName="ProcessoRowChangeEvent" msprop:Generator_RowClassName="ProcessoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id_Processo" msdata:Caption="Id_Projeto" msprop:Generator_ColumnVarNameInTable="columnId_Processo" msprop:Generator_ColumnPropNameInRow="Id_Processo" msprop:Generator_ColumnPropNameInTable="Id_ProcessoColumn" msprop:Generator_UserColumnName="Id_Processo" type="xs:int" minOccurs="0" />
+              <xs:element name="Desc_Processo" msdata:Caption="Desc_Projeto" msprop:Generator_ColumnVarNameInTable="columnDesc_Processo" msprop:Generator_ColumnPropNameInRow="Desc_Processo" msprop:Generator_ColumnPropNameInTable="Desc_ProcessoColumn" msprop:Generator_UserColumnName="Desc_Processo" type="xs:string" minOccurs="0" />
+              <xs:element name="Id_Usuario_Atualiz" msprop:Generator_ColumnVarNameInTable="columnId_Usuario_Atualiz" msprop:Generator_ColumnPropNameInRow="Id_Usuario_Atualiz" msprop:Generator_ColumnPropNameInTable="Id_Usuario_AtualizColumn" msprop:Generator_UserColumnName="Id_Usuario_Atualiz" type="xs:string" minOccurs="0" />
+              <xs:element name="Dt_Atualiz" msprop:Generator_ColumnVarNameInTable="columnDt_Atualiz" msprop:Generator_ColumnPropNameInRow="Dt_Atualiz" msprop:Generator_ColumnPropNameInTable="Dt_AtualizColumn" msprop:Generator_UserColumnName="Dt_Atualiz" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Nome" msprop:Generator_ColumnVarNameInTable="columnNome" msprop:Generator_ColumnPropNameInRow="Nome" msprop:Generator_ColumnPropNameInTable="NomeColumn" msprop:Generator_UserColumnName="Nome" type="xs:string" minOccurs="0" />
+              <xs:element name="Login_Atualiz" msprop:Generator_ColumnVarNameInTable="columnLogin_Atualiz" msprop:Generator_ColumnPropNameInRow="Login_Atualiz" msprop:Generator_ColumnPropNameInTable="Login_AtualizColumn" msprop:Generator_UserColumnName="Login_Atualiz" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
