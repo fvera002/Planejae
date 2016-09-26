@@ -13,5 +13,7 @@ namespace Planejae.UI.Models
             : base("DefaultConnection")
         {
         }
+
+        public System.Data.Entity.DbSet<Planejae.UI.Models.AtividadeModel> AtividadeModels { get; set; }
     }
 }

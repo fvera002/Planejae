@@ -10,6 +10,19 @@ namespace Planejae.DAL.Classes
 {
     public class AtividadeDAL
     {
+
+        public void GetById(DataTable datatable, int id)
+        {
+
+            var exec = new ProcedureExecuter(datatable);
+
+            var pars = new ParList();
+
+            pars.Add("@Id_Atividade", id);
+            exec.Execute("Sp_Atividade_Get", pars);
+        }
+
+        
         public void GetAll(DataTable datatable)
         {
 
@@ -50,5 +63,8 @@ namespace Planejae.DAL.Classes
             if (string.IsNullOrEmpty(ret)) return null;
             return int.Parse(ret);
         }
+
+
+        
     }
 }

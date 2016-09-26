@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Classes\AtividadeDAL.cs" />
+    <Compile Include="Classes\ProcessoDAL.cs" />
     <Compile Include="Classes\ProjetoDAL.cs" />
     <Compile Include="Classes\ResponsavelDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,6 +55,7 @@
   <ItemGroup>
     <Content Include="SQL\01-Table\CreateAll.sql" />
     <Content Include="SQL\01-Table\InsertPerfilUsuario.sql" />
+    <Content Include="SQL\01-Table\Scripts.sql" />
     <Content Include="SQL\03-Function\Fn_Is_Gestor.sql" />
     <Content Include="SQL\04-Procedure\Sp_Atividade_Get.sql" />
     <Content Include="SQL\04-Procedure\Sp_Atividade_Ins_Upd.sql" />

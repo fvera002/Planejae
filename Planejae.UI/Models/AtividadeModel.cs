@@ -10,6 +10,10 @@ namespace Planejae.UI.Models
     [Serializable]
     public class AtividadeModel
     {
+        public int Order { get; set; }
+
+        [Display(Name = "Sel.")]
+        public bool IsSelecionada { get; set; }
         public int Id { get; set; }
 
         [Required]

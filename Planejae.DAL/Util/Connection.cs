@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Planejae.DAL.Util
 {
-    public  class Connection
+    public static class Connection
     {
 
 
-        private  SqlConnection _conn;
+        private static string StringConnection;
 
-
+        /*
         private SqlConnectionStringBuilder _connStringLocal =
             new SqlConnectionStringBuilder()
             {
-                //DataSource = @"fernandoverago\SQLEXPRESS",
-                DataSource = @"LUCAS\SQLEXPRESS",
+                DataSource = @"fernandoverago\SQLEXPRESS",
+                //DataSource = @"LUCAS\SQLEXPRESS",
                 InitialCatalog = "planejae",
                 IntegratedSecurity = true,
                 Pooling = true
@@ -33,15 +33,17 @@ namespace Planejae.DAL.Util
                 InitialCatalog = "planejae",
                 Pooling = true
             };
+        */
 
-        public Connection()
+
+        public static void SetStringConnection(string stringConnection)
         {
-            _conn = new SqlConnection(_connStringAmazon.ToString());
+            Connection.StringConnection = stringConnection;
         }
 
-        public SqlConnection GetInstance()
+        public static SqlConnection GetInstance()
         {
-            return _conn;            
+            return new SqlConnection(Connection.StringConnection);            
         }
     }
 }
