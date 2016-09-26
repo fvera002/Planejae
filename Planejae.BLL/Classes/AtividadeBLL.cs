@@ -19,6 +19,15 @@ namespace Planejae.BLL.Classes {
         private AtividadeDAL atividadeDal = new AtividadeDAL();
         private ResponsavelDAL responsavelDal = new ResponsavelDAL();
 
+        public List<AtividadeRow> GetByIdList(IEnumerable<int> ids)
+        {    
+            foreach(var id in ids)
+            {
+                atividadeDal.GetById(this.Atividade, id);
+            }
+            return this.Atividade.ToList();
+
+        }
 
         public List<ResponsavelRow> GetResponsaveis()
         {

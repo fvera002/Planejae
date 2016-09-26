@@ -24,7 +24,7 @@ namespace Planejae.DAL.Util
 
         public void Execute(string procedureName)
         {
-            using (var conn = new Connection().GetInstance())
+            using (var conn = Connection.GetInstance())
             {
                 using (var cmd = new SqlCommand(procedureName, conn))
                 {
@@ -35,7 +35,7 @@ namespace Planejae.DAL.Util
 
         public void Execute(string procedureName, ParList inParameters)
         {
-            using (var conn = new Connection().GetInstance())
+            using (var conn = Connection.GetInstance())
             {                
                 using (var cmd = new SqlCommand(procedureName, conn))
                 {
@@ -50,7 +50,7 @@ namespace Planejae.DAL.Util
 
         public void Execute(string procedureName, ParList inParameters, ref ParList outParameters)
         {
-            using (var conn = new Connection().GetInstance())
+            using (var conn = Connection.GetInstance())
             {                
                 using (var cmd = new SqlCommand(procedureName, conn))
                 {

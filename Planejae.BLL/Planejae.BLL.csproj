@@ -49,6 +49,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AtividadeBLL.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Config.cs" />
     <Compile Include="Classes\ProcessoBLL.cs">
       <DependentUpon>ProcessoBLL.xsd</DependentUpon>
       <SubType>Component</SubType>

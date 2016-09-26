@@ -1,0 +1,14 @@
+﻿@model Planejae.UI.Models.AtividadeModel
+<tr>
+    @Html.HiddenFor(model => model.Order)
+    @Html.HiddenFor(model => model.Id)
+    <td> @Html.EditorFor(model => model.IsSelecionada)  </td>
+    <td> @Html.DisplayFor(model => model.Nome)  </td>
+    <td> @Html.DisplayFor(model => model.Descricao)  </td>
+    <td> @Html.DisplayFor(model => model.DiasTermino) </td>
+    <td> @Html.DisplayFor(model => model.FlPermiteRetrabalho) </td>
+    <td> @Html.DisplayFor(model => model.FlAdicionaProxResponsavel)</td>
+    <td> @Html.DisplayFor(model => model.FlAceitaAnexo)</td>
+    <td> @Html.DisplayFor(model => model.LoginInclusao) </td>
+
+</tr>

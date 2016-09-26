@@ -16,11 +16,20 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Processo" msdata:Caption="Id_Projeto" msprop:Generator_ColumnVarNameInTable="columnId_Processo" msprop:Generator_ColumnPropNameInRow="Id_Processo" msprop:Generator_ColumnPropNameInTable="Id_ProcessoColumn" msprop:Generator_UserColumnName="Id_Processo" type="xs:int" minOccurs="0" />
-              <xs:element name="Desc_Processo" msdata:Caption="Desc_Projeto" msprop:Generator_ColumnVarNameInTable="columnDesc_Processo" msprop:Generator_ColumnPropNameInRow="Desc_Processo" msprop:Generator_ColumnPropNameInTable="Desc_ProcessoColumn" msprop:Generator_UserColumnName="Desc_Processo" type="xs:string" minOccurs="0" />
+              <xs:element name="Desc_Processo" msdata:Caption="Desc_Projeto" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="Desc_Processo" msprop:Generator_ColumnVarNameInTable="columnDesc_Processo" msprop:Generator_ColumnPropNameInTable="Desc_ProcessoColumn" msprop:Generator_UserColumnName="Desc_Processo" type="xs:string" default="null" minOccurs="0" />
               <xs:element name="Id_Usuario_Atualiz" msprop:Generator_ColumnVarNameInTable="columnId_Usuario_Atualiz" msprop:Generator_ColumnPropNameInRow="Id_Usuario_Atualiz" msprop:Generator_ColumnPropNameInTable="Id_Usuario_AtualizColumn" msprop:Generator_UserColumnName="Id_Usuario_Atualiz" type="xs:string" minOccurs="0" />
               <xs:element name="Dt_Atualiz" msprop:Generator_ColumnVarNameInTable="columnDt_Atualiz" msprop:Generator_ColumnPropNameInRow="Dt_Atualiz" msprop:Generator_ColumnPropNameInTable="Dt_AtualizColumn" msprop:Generator_UserColumnName="Dt_Atualiz" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Nome" msprop:Generator_ColumnVarNameInTable="columnNome" msprop:Generator_ColumnPropNameInRow="Nome" msprop:Generator_ColumnPropNameInTable="NomeColumn" msprop:Generator_UserColumnName="Nome" type="xs:string" minOccurs="0" />
               <xs:element name="Login_Atualiz" msprop:Generator_ColumnVarNameInTable="columnLogin_Atualiz" msprop:Generator_ColumnPropNameInRow="Login_Atualiz" msprop:Generator_ColumnPropNameInTable="Login_AtualizColumn" msprop:Generator_UserColumnName="Login_Atualiz" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ProcessoAtividade" msprop:Generator_TableClassName="ProcessoAtividadeDataTable" msprop:Generator_TableVarName="tableProcessoAtividade" msprop:Generator_TablePropName="ProcessoAtividade" msprop:Generator_RowDeletingName="ProcessoAtividadeRowDeleting" msprop:Generator_RowChangingName="ProcessoAtividadeRowChanging" msprop:Generator_RowEvHandlerName="ProcessoAtividadeRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcessoAtividadeRowDeleted" msprop:Generator_UserTableName="ProcessoAtividade" msprop:Generator_RowChangedName="ProcessoAtividadeRowChanged" msprop:Generator_RowEvArgName="ProcessoAtividadeRowChangeEvent" msprop:Generator_RowClassName="ProcessoAtividadeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id_Processo" msprop:Generator_ColumnVarNameInTable="columnId_Processo" msprop:Generator_ColumnPropNameInRow="Id_Processo" msprop:Generator_ColumnPropNameInTable="Id_ProcessoColumn" msprop:Generator_UserColumnName="Id_Processo" type="xs:int" minOccurs="0" />
+              <xs:element name="Id_Atividade" msprop:Generator_ColumnVarNameInTable="columnId_Atividade" msprop:Generator_ColumnPropNameInRow="Id_Atividade" msprop:Generator_ColumnPropNameInTable="Id_AtividadeColumn" msprop:Generator_UserColumnName="Id_Atividade" type="xs:int" minOccurs="0" />
+              <xs:element name="Sequencia" msprop:Generator_ColumnVarNameInTable="columnSequencia" msprop:Generator_ColumnPropNameInRow="Sequencia" msprop:Generator_ColumnPropNameInTable="SequenciaColumn" msprop:Generator_UserColumnName="Sequencia" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
