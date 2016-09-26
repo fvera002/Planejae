@@ -8,10 +8,9 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Processo", FormMethod.Post, new { encType = "multipart/form-data", name = "myform" }))
 {
-    @Html.AntiForgeryToken()
-    
+    @Html.HiddenFor(model => model.IdProcesso)
     <div class="form-horizontal">
         <h4>ProcessoModel</h4>
         <hr />
@@ -32,12 +31,50 @@
                 @Html.ValidationMessageFor(model => model.Descricao)
             </div>
         </div>
+    
+    @if (Model.Atividades != null && Model.Atividades.Count() > 0)
+    {
+        
+        <p>Selecione atividates relacionadas:</p>
+            <table class="table">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().IsSelecionada)</th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().Descricao) </th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().DiasTermino)</th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().FlPermiteRetrabalho)</th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().FlAdicionaProxResponsavel)</th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().FlAceitaAnexo) </th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().LoginInclusao)</th>
+                </tr>
+                @Html.EditorFor(model => model.Atividades)
+                @*<tbody class="sortable">
+                    
+                    @foreach (var item in Model.Atividades)
+                    {
+                        <tr>
+                            <td> @Html.EditorFor(modelItem => item.IsSelecionada)  </td>
+                            <td> @Html.DisplayFor(modelItem => item.Nome)  </td>
+                            <td> @Html.DisplayFor(modelItem => item.Descricao)  </td>
+                            <td> @Html.DisplayFor(modelItem => item.DiasTermino)   </td>
+                            <td> @Html.DisplayFor(modelItem => item.FlPermiteRetrabalho) </td>
+                            <td> @Html.DisplayFor(modelItem => item.FlAdicionaProxResponsavel)                            </td>
+                            <td> @Html.DisplayFor(modelItem => item.FlAceitaAnexo)</td>
+                            <td> @Html.DisplayFor(modelItem => item.LoginInclusao)                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                    </tbody>*@
+</table>
 
-
-
+        }
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Criar" class="btn btn-default" />
             </div>
         </div>
     </div>

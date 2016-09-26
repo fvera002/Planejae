@@ -204,7 +204,7 @@ PRINT 'Creating object Sp_Processo_Ins_Upd'
 go
 CREATE PROCEDURE Sp_Processo_Ins_Upd
 @Id_Processo			int out,
-@Desc_Processo			varchar(1024),
+@Desc_Processo			varchar(1024)= null,
 @Nome					varchar(80),
 @Id_Usuario_Atualiz		Usuario
 AS
@@ -261,8 +261,6 @@ END
 PRINT 'Creating object Sp_Processo_Get' 
 go
 CREATE PROCEDURE Sp_Processo_Get
-
-
 AS
 begin
 	SET NOCOUNT ON
@@ -273,4 +271,52 @@ begin
 
 	SET NOCOUNT OFF
 end
+GO
 
+IF EXISTS (SELECT top 1 1 FROM sys.objects WHERE name = 'Sp_Atividade_Processo_Ins_Upd')
+BEGIN
+	DROP PROCEDURE Sp_Atividade_Processo_Ins_Upd
+	PRINT 'Dropping object Sp_Atividade_Processo_Ins_Upd' 
+END
+PRINT 'Creating object Sp_Atividade_Processo_Ins_Upd' 
+go
+CREATE PROCEDURE Sp_Atividade_Processo_Ins_Upd
+	@Id_Processo			int,
+	@Id_Atividade			int
+
+AS
+begin
+	SET NOCOUNT ON
+
+	declare @Ultima_Sequencia int
+	
+	SELECT @Ultima_Sequencia = MAX(Sequencia) 
+	  FROM Atividade_Processo
+	 WHERE Id_Processo = @Id_Processo 
+									
+
+	IF EXISTS(SELECT TOP 1 1 
+	            FROM Atividade_Processo
+	           WHERE Id_Processo = @Id_Processo AND Id_Atividade = @Id_Atividade)
+	BEGIN
+
+		UPDATE Atividade_Processo
+		   SET Id_Atividade = @Id_Atividade
+			  ,Id_Processo	= @Id_Processo
+			  ,Sequencia	= @Ultima_Sequencia +1
+		 WHERE Id_Atividade = @Id_Atividade
+		   AND Id_Processo	= @Id_Processo		   
+	END
+	ELSE
+	BEGIN
+		INSERT INTO Atividade_Processo
+				   (Id_Atividade
+				   ,Id_Processo
+				   ,Sequencia)
+			 VALUES
+				   (@Id_Atividade
+				   ,@Id_Processo
+				   ,COALESCE(@Ultima_Sequencia,0) +1)
+	END
+
+end

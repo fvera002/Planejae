@@ -40,7 +40,35 @@ namespace Planejae.UI.Controllers
         // GET: /Processo/Create
         public ActionResult Create()
         {
-            return View();
+            var model = new ProcessoModel();
+
+            var allAtividades = Bll.GetAllAtividades();
+
+            foreach(var atv in allAtividades)
+            {
+                model.Atividades.Add(new AtividadeModel(atv));
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Order(ProcessoModel processo)
+        {
+            var p = processo.ToRow();
+
+            var usu = User.Identity.GetUserId();
+
+            if (usu == null) return Redirect("/Account/Login");
+            p.Id_Usuario_Atualiz = User.Identity.GetUserId();
+
+            var idsAtividadesOrdenadas = from x in processo.Atividades
+                                         orderby x.Order
+                                         select x.Id;
+
+            int? id = Bll.InsertUpdate(p, idsAtividadesOrdenadas.ToList());
+            if (id.HasValue) processo.IdProcesso = id.Value;
+            return RedirectToAction("Index");
         }
 
         //
@@ -50,13 +78,24 @@ namespace Planejae.UI.Controllers
         {
             try
             {
-                var p = model.ToRow();
+                
+                var selecionadas = model.Atividades.Where(x => x.IsSelecionada);
 
-                p.Id_Usuario_Atualiz = User.Identity.GetUserId();
+                if (selecionadas != null || selecionadas.Count() > 0)
+                {
+                    var ids = selecionadas.Select(x => x.Id);
+                    var atvs = Bll.GetAtividadesByIdsList(selecionadas.Select(x => x.Id));
+                    var atvsModel = new List<AtividadeModel>();
+                    foreach (var atv in atvs)
+                    {
+                        atvsModel.Add(new AtividadeModel(atv));
+                    }
+                    model.Atividades = atvsModel;
 
-                Bll.InsertUpdate(p);
+                }
 
-                return RedirectToAction("Index");
+                return View("Order", model);
+
             }
             catch
             {

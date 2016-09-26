@@ -11,10 +11,15 @@ namespace Planejae.UI
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+            //adicionei a configração da string de conexão no método de aunteticação
+            //não sei se é a melhor solução ainda
+            BLL.Classes.Config.SetConnectionString(Controllers.Config.ConnectionString);
+
+
             // Enable the application to use a cookie to store information for the signed in user
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                //ExpireTimeSpan = TimeSpan.FromMinutes(60),
+                ExpireTimeSpan = TimeSpan.FromMinutes(60),
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login")
             });

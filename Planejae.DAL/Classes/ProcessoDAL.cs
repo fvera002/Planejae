@@ -42,5 +42,17 @@ namespace Planejae.DAL.Classes
             if (string.IsNullOrEmpty(ret)) return null;
             return int.Parse(ret);
         }
+
+        public void InsertUpdateProcessoAtividade(int idProcesso, int idAtividade)
+        {
+            ParList inPars = new ParList();
+
+            inPars.Add("@Id_Atividade", idAtividade);
+            inPars.Add("@Id_Processo", idProcesso);
+
+            var exec = new ProcedureExecuter();
+
+            exec.Execute("Sp_Atividade_Processo_Ins_Upd", inPars);
+        }
     }
 }

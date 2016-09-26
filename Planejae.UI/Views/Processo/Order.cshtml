@@ -1,0 +1,67 @@
+﻿@model Planejae.UI.Models.ProcessoModel
+
+@{
+    ViewBag.Title = "Organizar Ordem das Atividades no Processo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Organizar Ordem das Atividades no Processo</h2>
+
+
+@using (Html.BeginForm("Order", "Processo", FormMethod.Post, new { encType = "multipart/form-data", name = "myform" }))
+{
+    @Html.HiddenFor(model => model.IdProcesso)
+    <div class="form-horizontal">
+        <h4>ProcessoModel</h4>
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descricao, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descricao)
+            </div>
+        </div>
+
+        @if (Model != null && Model.Atividades != null && Model.Atividades.Count() > 0)
+        {
+            <p>Arraste e solte para reordenar as atividades:</p>
+            <table class="table">
+                <tr>                                        
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().IsSelecionada)</th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().Descricao) </th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().DiasTermino)</th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().FlPermiteRetrabalho)</th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().FlAdicionaProxResponsavel)</th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().FlAceitaAnexo) </th>
+                    <th>@Html.DisplayNameFor(model => model.Atividades.First().LoginInclusao)</th>
+                    <th></th>
+                </tr>
+                <tbody class="sortable">
+                   @Html.EditorFor(model => model.Atividades)
+                </tbody>
+            </table>
+
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-default" id="submit" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -10,7 +10,7 @@ namespace Planejae.UI.Models
     [Serializable]
     public class ProcessoModel
     {
-        public int Id { get; set; }
+        public int IdProcesso { get; set; }
 
         [Required]
         [Display(Name = "Nome do Processo")]
@@ -30,9 +30,13 @@ namespace Planejae.UI.Models
         [Display(Name = "Usuario de Atualização")]
         public string Login_Atualiz { get; set; }
 
+        [Display(Name = "Atividades neste processo")]
+        public List<AtividadeModel> Atividades { get; set; }
+
+
         public ProcessoModel()
-        { 
-        
+        {
+            Atividades = new List<AtividadeModel>();
         }
 
         public ProcessoModel(ProcessoBLL.ProcessoRow row)
@@ -41,7 +45,7 @@ namespace Planejae.UI.Models
             if(!row.IsDesc_ProcessoNull()) this.Descricao = row.Desc_Processo;
             this.Dt_Atualiz = row.Dt_Atualiz;
             this.Login_Atualiz = row.Login_Atualiz;
-            if(!row.IsId_ProcessoNull()) this.Id = row.Id_Processo;
+            if(!row.IsId_ProcessoNull()) this.IdProcesso = row.Id_Processo;
         }
 
 
@@ -49,7 +53,7 @@ namespace Planejae.UI.Models
         {
             var row = new ProcessoBLL().Processo.NewProcessoRow();
 
-            row.Id_Processo = Id;
+            row.Id_Processo = IdProcesso;
             row.Desc_Processo = Descricao;
             row.Nome = Nome;
 
