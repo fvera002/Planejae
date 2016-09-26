@@ -49,6 +49,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AtividadeBLL.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Classes\ProjetoBLL.cs">
+      <DependentUpon>ProjetoBLL.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Classes\ProjetoBLL.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
